@@ -1,5 +1,5 @@
 from datetime import datetime
-
+import json
 
 class OptionNotPresentError(Exception):
     def __init__(self, optionString, pollId):
@@ -85,3 +85,6 @@ class PollClass():
 
     def getCreatorId(self):
         return self.creatorId
+
+    def toJSONFormat(self):
+        return json.dumps(self.__dict__)
