@@ -12,6 +12,7 @@ async def get_page():
     return {"status": "ok"}
 
 
+    
 #retrieve
 @student_api_router.get("/students")
 async def get_students():
@@ -25,7 +26,7 @@ async def get_student(id: str):
 
 #post
 @student_api_router.post("/students")
-async def post_todo(student: Student):
+async def post_createAccount(student: Student):
     #convert passed data into entry, get id
     _id = studentCollection.insert_one(dict(student))
     #return object from DB 
