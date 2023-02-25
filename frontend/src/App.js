@@ -7,6 +7,8 @@ import CreatePollComponent from './components/CreatePollComponent';
 import TestCreatePoll from './components/testCreatePoll'
 import ProfilePageComponentStudent from './components/ProfilePageComponent';
 import ProfilePageComponentGov from './components/ProfilePageComponentGov';
+import TestComponent from './components/testComponent';
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -17,6 +19,7 @@ export default function App() {
         <Route path="/profilePageTest" element={<ProfilePageComponentStudent/>}></Route>
         <Route path="/profileGovPageTest" element={<ProfilePageComponentGov/>}></Route>
         <Route path="/myPolls" element={<ProfilePageComponentStudent/>}></Route>
+        <Route path="/test" element={<TestComponent/>}></Route>
       </Routes>
     </BrowserRouter>
   );
