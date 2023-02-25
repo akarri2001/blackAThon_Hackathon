@@ -22,7 +22,7 @@ class PollClass(BaseModel):
     questionString: str
     uniqueId: str
     creatorId: str
-    options:  list
+    options:  dict
     lastEdited: str
     tags:  list
 
@@ -88,17 +88,3 @@ class PollClass(BaseModel):
 
     def toJSONFormat(self):
         return json.dumps(self.__dict__, default=str)
-
-def main():
-    poll1 = PollClass('Best College?', 'sdfjdlfjdf', 'sdkfjdlsfjdlf')
-
-    print(poll1.getOptions())
-
-    poll1.addOption('College of Engineering')
-    # poll1.addOption('College of Engineering')
-    poll1.addTag('tag1')
-    poll1.addTag('tag1')
-    print(poll1.toJSONFormat())
-
-if __name__ == '__main__':
-    main()
