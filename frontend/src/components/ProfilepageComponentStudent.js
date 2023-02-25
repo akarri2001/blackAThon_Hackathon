@@ -29,7 +29,7 @@ export default function ProfilePageComponentStudent(props){
 
         loading = setLoading(true)
 
-        const response = await axios.get('http://localhost:5000/students/' + String(studentMongoId));
+        const response = await axios.get('http://localhost:5000/users/' + String(studentMongoId));
 
         // After fetching data stored it in posts state.
         // studentData = setStudentData(await response.json());
@@ -45,7 +45,7 @@ export default function ProfilePageComponentStudent(props){
             console.log(dataReturn)
             let dataReturn2 = await dataReturn.data
             console.log('dr2', dataReturn2)
-            let dataReturn3 = await dataReturn2[0]
+            let dataReturn3 = await dataReturn2['data']
             profileData = setProfileData({...dataReturn3})
             setLoading(false)          
 

@@ -69,9 +69,8 @@ export default function FeedComponent() {
                             
                         </>)
                         }
-                        </div>
-                </div>
-
+                    </div>
+            </div>
 
     )
 }
