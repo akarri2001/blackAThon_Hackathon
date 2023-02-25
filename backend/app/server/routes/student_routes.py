@@ -1,7 +1,9 @@
 from fastapi import APIRouter
 from config.database import studentCollection
 from models.student_model import Student
+from models.sga_model import Sga
 from schemas.student_schema import students_serializer, student_serializer
+from config.database import sgaCollection
 from bson import ObjectId
 
 student_api_router = APIRouter()
@@ -10,7 +12,6 @@ student_api_router = APIRouter()
 @student_api_router.get("/")
 async def get_page():
     return {"status": "ok"}
-
 
     
 #retrieve
@@ -33,4 +34,21 @@ async def post_createAccount(student: Student):
     student = student_serializer(studentCollection.find_one({"_id": _id.inserted_id}))
     return {"status": "ok", "data": student}
 
+
+#LOGIN FLOW
+#post
+@student_api_router.post("/login")
+async def post_login(username: str, password: str):
+    #try finding a student account
+    account : Student = studentCollection.find_one({"username": username, "password": password})
+    #was a student account found?
+    if account:
+        return {"status": "ok", "data": {"Approval": True, "_id": account._id}}
+    #try finding an sga account
+    account : Sga = sgaCollection.find_one({"username": username, "password": password})
+    #was a student account found?
+    if account:
+        return {"status": "ok", "data": {"Approval": True, "_id": account._id}}
+    #nothing found?
+    return {"status": "ok", "data": {"Approval": False,}}
     
