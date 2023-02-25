@@ -36,3 +36,4 @@ class Sga(Student , BaseModel):
     def getCreatedPolls(self):
         return self.pollsCreated
     
+    # def deletePoll(self, poll_id):
