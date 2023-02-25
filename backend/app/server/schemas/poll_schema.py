@@ -1,8 +1,7 @@
 def poll_serializer(poll) -> dict:
     return{
-        "id":  str(poll["_id"]),
+        "_id":  str(poll["_id"]),
         "questionString":  poll["questionString"],
-        "uniqueId": poll["uniqueId"],
         "creatorId": poll["creatorId"],
         "options":  poll["options"],
         "lastEdited": poll["lastEdited"],

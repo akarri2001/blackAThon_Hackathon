@@ -1,11 +1,14 @@
 def sga_serializer(sga) -> dict:
     return{
-        "id":  str(sga["_id"]),
+        "_id":  str(sga["_id"]),
         "firstName": sga["firstName"],
         "lastName": sga["lastName"],
         "studentID": sga["studentID"],
-        "email": sga["email"]
+        "email": sga["email"],
         #NEED TO ADD THEIR LIST OF POLLS CREATED AND THEIR LIST OF POLLS RESPODNED TO
+        "pollsAnswered": sga["pollsAnswered"],
+        "pollsCreated":  sga["pollsCreated"]
+
     }
 
 #perform the above function many times (for a list of studentGov objects)    

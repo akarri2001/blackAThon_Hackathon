@@ -19,8 +19,8 @@ class TagNotPresentError(Exception):
         super().__init__(self.message)
 
 class PollClass(BaseModel):
+    _id: str
     questionString: str
-    uniqueId: str
     creatorId: str
     options:  dict
     lastEdited: str
@@ -34,14 +34,14 @@ class PollClass(BaseModel):
             self.options[optionString] += self.options.get(optionString, 0)
             self.setNewLastEditTime()
         else:
-            raise OptionNotPresentError(optionString, self.uniqueId)
+            raise OptionNotPresentError(optionString)
     
     def removeOneToOption(self, optionString):
         if optionString in self.options:
             self.options[optionString] -= self.options.get(optionString, 0)
             self.setNewLastEditTime()
         else:
-            raise OptionNotPresentError(optionString, self.uniqueId)
+            raise OptionNotPresentError(optionString)
     
     def addTag(self, tagString):
         if tagString not in self.tags:
@@ -50,21 +50,21 @@ class PollClass(BaseModel):
     
     def removeTag(self, tagString):
         if tagString not in self.tags:
-            raise TagNotPresentError(tagString, self.uniqueId)
+            raise TagNotPresentError(tagString)
         else:
             self.tags.remove(tagString)
             self.setNewLastEditTime()
 
     def addOption(self, optionString):
         if optionString in self.options:
-            raise OptionAlreadyPresentError(optionString, self.uniqueId)
+            raise OptionAlreadyPresentError(optionString)
         else:
             self.options[optionString] = 0
             self.setNewLastEditTime()
     
     def removeOption(self, optionString):
         if optionString not in self.options:
-            raise OptionNotPresentError(optionString, self.uniqueId)
+            raise OptionNotPresentError(optionString)
         else:
             del self.options[optionString]
             self.setNewLastEditTime()
@@ -75,7 +75,7 @@ class PollClass(BaseModel):
             self.setNewLastEditTime()
     
     def getPoll_Id(self):
-        return self.uniqueId
+        return self._id
     
     def getOptions(self):
         return self.options
