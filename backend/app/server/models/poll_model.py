@@ -1,5 +1,7 @@
-from datetime import datetime
 import json
+from datetime import datetime
+from pydantic import BaseModel
+
 
 class OptionNotPresentError(Exception):
     def __init__(self, optionString, pollId):
@@ -16,15 +18,13 @@ class TagNotPresentError(Exception):
         self.message = f'ERROR: {tagString} not in pollId: {pollId}' 
         super().__init__(self.message)
 
-class PollClass():
-
-    def __init__(self, questionString, uniqueId, creatorId, options = {}, tags = set()):
-        self.questionString = questionString
-        self.uniqueId = uniqueId
-        self.creatorId = creatorId
-        self.options = options
-        self.lastEdited = datetime.now()
-        self.tags = tags
+class PollClass(BaseModel):
+    questionString: str
+    uniqueId: str
+    creatorId: str
+    options:  list
+    lastEdited: str
+    tags:  list
 
     def setNewLastEditTime(self):
         self.lastEdited = datetime.now()
