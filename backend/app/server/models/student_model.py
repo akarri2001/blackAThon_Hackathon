@@ -2,6 +2,7 @@ from models.user_model import UserClass
 from models.poll_model import PollClass
 from pydantic import BaseModel
 from config.database import studentCollection, pollsCollection
+from schemas.poll_schema import polls_serializer
 from models.role_model import Role
 from bson import ObjectId
 
@@ -42,6 +43,5 @@ def getPollsAnswered(self):
     return self.pollsAnswered
 
 def getFeed(self):
-    #get pre-existing polls based on lastEdited?
-    pass
+    return polls_serializer(pollsCollection.find())
 

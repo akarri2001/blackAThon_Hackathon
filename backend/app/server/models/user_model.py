@@ -21,6 +21,9 @@ class UserClass(ABC, BaseModel):
     def getFullName(self):
         return self.fullName+" "+self.lastName
     
+    def getRole(self):
+        return self.role
+    
     
         
     
