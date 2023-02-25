@@ -5,7 +5,7 @@ import LoginPageComponent from './components/LogInPageComponent';
 import FeedPage from './components/FeedPage'
 import CreatePollComponent from './components/CreatePollComponent';
 import TestCreatePoll from './components/testCreatePoll'
-import ProfilePageComponentStudent from './components/ProfilePageComponent';
+import ProfilePageComponentStudent from './components/ProfilepageComponentStudent';
 import ProfilePageComponentGov from './components/ProfilePageComponentGov';
 import TestComponent from './components/testComponent';
 
@@ -20,6 +20,7 @@ export default function App() {
         <Route path="/profileGovPageTest" element={<ProfilePageComponentGov/>}></Route>
         <Route path="/myPolls" element={<ProfilePageComponentStudent/>}></Route>
         <Route path="/test" element={<TestComponent/>}></Route>
+        <Route path="/studentProfile/:studentMongoId" element={<ProfilePageComponentStudent/>}></Route>
       </Routes>
     </BrowserRouter>
   );

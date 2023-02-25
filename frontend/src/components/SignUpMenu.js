@@ -44,10 +44,12 @@ export default function SignUpMenu(){
             }
         );
         
-        let loginData = await console.log(response.data)
+        await console.log(response.data)
+        let loginData = await response.data
         let status = await response.data.status
         if (status == 'ok'){
-            window.location = '/profilePageTest'
+            let idVal = loginData.data._id
+            window.location = '/studentProfile/' + idVal
         }
         else{
             alert('Something went wrong with signing you up!')
