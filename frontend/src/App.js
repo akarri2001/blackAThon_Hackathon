@@ -1,13 +1,16 @@
 
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LoginPageComponent from './components/LogInPageComponent';
+import PollComponent from './components/PollComponent'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <LoginPageComponent></LoginPageComponent>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginPageComponent/>}></Route>
+        <Route path="/pollTest" element={<PollComponent/>}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;

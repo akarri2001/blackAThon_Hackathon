@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import Button from '@mui/material/Button'
-import { TextField
- } from '@mui/material'
 
 import campusConnectLogo from '../assets/campusConnectLogo.jpg'
 import SignUpMenu from './SignUpMenu'
@@ -52,7 +50,10 @@ export default function LoginPageComponent(){
                     gridColumnStart: 2,
                     gridColumnEnd: 5,
                     gridRowStart:2,
-                    griddRowEnd: 4
+                    griddRowEnd: 4,
+                    justifyItems:'center',
+                    alignItems:'center',
+                    margin:'auto',
                 }}>
                     <img src={campusConnectLogo} style={{
                         height:"auto",
@@ -64,7 +65,10 @@ export default function LoginPageComponent(){
                     gridColumnStart: 2,
                     gridColumnEnd: 5,
                     gridRowStart:4,
-                    griddRowEnd: 6
+                    griddRowEnd: 6,
+                    justifyItems:'center',
+                    alignItems:'center',
+                    margin:'auto',
 
                 }}>
                     <div style={{
