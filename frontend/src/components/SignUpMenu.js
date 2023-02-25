@@ -24,7 +24,7 @@ export default function SignUpMenu(){
     async function submitForm(){
         console.log(formData)
         const response = await axios.post(
-            'http://localhost:5000/students',
+            'http://localhost:5000/signUp',
             // '{\n  "firstName": "testfirstName",\n  "lastName": "testLastName",\n  "email": "emailString",\n  "username": "string",\n  "password": "string",\n  "role": "STUDENT",\n  "studentID": "string",\n  "pollsAnswered": {}\n}',
             {
                 'firstName': formData['First_Name'],

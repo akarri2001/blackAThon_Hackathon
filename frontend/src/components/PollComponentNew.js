@@ -30,7 +30,8 @@ export default function PollComponentNew(props) {
         }
     }
 
-    let optionSectionButtons = [...optionsSet].map((key, index) => {
+    
+    let optionSectionButtons = [...Object.keys(optionsSet)].map((key, index) => {
         
         return(
             <div key={uniqid()}
@@ -43,7 +44,7 @@ export default function PollComponentNew(props) {
                 }}
             onClick={() => {optionSelectedFunction(index)}}
             >
-                {votedBool ? String(key) + ': number': key}
+                {votedBool ? optionsSet[key]: key}
             </div>
         )
     })

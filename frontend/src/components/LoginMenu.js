@@ -10,6 +10,8 @@ export default function SignUpMenu(){
         Password: ''
     })
 
+    let [isSubmitting, setIsSubmitting] = useState(false)
+
     function onTextChange(e){
         let tempTarget = e.target.id
         let tempValue = e.target.value
@@ -20,8 +22,33 @@ export default function SignUpMenu(){
 
     async function submitForm(){
         console.log(formData)
+        const response = await axios.post(
+            'http://localhost:5000/login',
+            '',
+            {
+                params: {
+                    'username': formData['UserName'],
+                    'password': formData['Password']
+                },
+                headers: {
+                    'accept': 'application/json',
+                    'content-type': 'application/x-www-form-urlencoded'
+                }
+            }
+        );
         
+        await console.log(response.data)
+        let loginData = await response.data
+        let status = await response.data.status
+        if (status == 'ok'){
+            let idVal = loginData.data._id
+            window.location = '/studentProfile/' + idVal
+        }
+        else{
+            alert('Something went wrong with logging you in!')
+        }
     }
+
 
     return(
         <>
