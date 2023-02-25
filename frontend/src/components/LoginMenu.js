@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Button from '@mui/material/Button'
 import { TextField } from '@mui/material'
+import axios from 'axios'
 
 export default function SignUpMenu(){
 
@@ -17,9 +18,9 @@ export default function SignUpMenu(){
         formData = setFormData(tempData)
     }
 
-    function submitForm(){
+    async function submitForm(){
         console.log(formData)
-        // alert(JSON.stringify(formData))
+        
     }
 
     return(
