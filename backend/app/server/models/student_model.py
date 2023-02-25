@@ -1,6 +1,7 @@
 from models.user_model import UserClass
 from pydantic import BaseModel
 from config.database import studentCollection, pollsCollection
+from models.role_model import Role
 
 
 
@@ -9,7 +10,10 @@ class Student(UserClass , BaseModel):
     #in pydantic the ellipses
     # (...) indicates a field is required, could be replaced with None or a default value
     studentID: str #= Field(...)
-    pollsAnswered: dict 
+    pollsAnswered: dict
+    role:str = 'STUDENT'
+    
+     
     
     
     
