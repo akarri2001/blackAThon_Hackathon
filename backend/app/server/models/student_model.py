@@ -35,15 +35,6 @@ def removeOption(self,poll_id: str, optionString):
     #remove poll from  users currently answered polls
     del self.pollsAnswered[ObjectId(poll_id)]
 
-def getFirstName(self):
-    return self.firstName
-
-def getLastName(self):
-    return self.lastName
-
-def getFullName(self):
-    return self.fullName+" "+self.lastName
-
 def getStudentId(self):
     return self.studentId
 

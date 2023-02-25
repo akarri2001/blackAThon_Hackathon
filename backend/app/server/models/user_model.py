@@ -9,6 +9,14 @@ class UserClass(ABC, BaseModel):
     username: str
     password: str
     role : str = "USER"
+    def getFirstName(self):
+        return self.firstName
+
+    def getLastName(self):
+        return self.lastName
+
+    def getFullName(self):
+        return self.fullName+" "+self.lastName
     
     
         
