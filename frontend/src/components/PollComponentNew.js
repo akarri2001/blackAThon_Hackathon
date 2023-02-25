@@ -1,7 +1,8 @@
+import { textAlign } from '@mui/system'
 import React, { useState } from 'react'
 import uniqid from 'uniqid'
 
-export default function PollComponent(props) {
+export default function PollComponentNew(props) {
     
     let {questionText, optionsSet} = {...props}
 
@@ -38,7 +39,7 @@ export default function PollComponent(props) {
                 display:'flex',
                 justifyContent:'center',
                 fontSize:'5vh',
-                backgroundColor:['white','blue'][optionSelected[index]]
+                backgroundColor:['white','gray'][optionSelected[index]]
                 }}
             onClick={() => {optionSelectedFunction(index)}}
             >
@@ -55,17 +56,28 @@ export default function PollComponent(props) {
             flexDirection:'column',
             justifyContent:'center',
             alignItems:'center',
-            border:"1px solid black",
-            backgroundImage: "linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1))",
+            width: "100%"
         }}>
-            <h2>{questionText}</h2>
             <div style={{
-                display: 'flex',
-                flexDirection:'column',
-                gap: "10px",
-                width: "100%" 
+                border:"4px solid #CC0000",
+                width: "60%" ,
+                filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0, .25))",
+                margin:'auto'
             }}>
-                {optionSectionButtons}
+                <h2 style={{
+                    textAlign:'center'
+                }}>{questionText}</h2>
+                <div style={{
+                    display: 'flex',
+                    flexDirection:'column',
+                    gap: "10px",
+                    marginLeft: '10%',
+                    marginRight: '10%',
+                    marginBottom: '5%'
+                    // border:"4px solid blue",
+                }}>
+                    {optionSectionButtons}
+                </div>
             </div>
         </div>
         </>

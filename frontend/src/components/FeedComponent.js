@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import PollComponent from './PollComponent'
+import PollComponentNew from './PollComponentNew'
 
 export default function FeedComponent() {
     let optionSet = new Set(['Op1', 'Op2', 'Op3'])
@@ -10,10 +11,11 @@ export default function FeedComponent() {
             gap: "20px" 
 
         }}>
-            <PollComponent questionText ='Test Question' optionsSet = {optionSet}></PollComponent>
-            <PollComponent questionText ='Test Question' optionsSet = {optionSet}></PollComponent>
-            <PollComponent questionText ='Test Question' optionsSet = {optionSet}></PollComponent>
-            <PollComponent questionText ='Test Question' optionsSet = {optionSet}></PollComponent>
+            <PollComponentNew questionText ='Test Question' optionsSet = {optionSet}></PollComponentNew>
+            <PollComponentNew questionText ='Test Question' optionsSet = {optionSet}></PollComponentNew>
+            <PollComponentNew questionText ='Test Question' optionsSet = {optionSet}></PollComponentNew>
+            <PollComponentNew questionText ='Test Question' optionsSet = {optionSet}></PollComponentNew>
+             
         </div>
     )
 }
